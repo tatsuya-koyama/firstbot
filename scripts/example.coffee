@@ -10,14 +10,6 @@
 
 module.exports = (robot) ->
 
-  robot.hear /あ/i, (msg) ->
-    msg.send "ああ"
-
-  robot.respond /おい/i, (msg) ->
-    msg.reply "はい"
-
-
-
   # robot.hear /badger/i, (msg) ->
   #   msg.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
