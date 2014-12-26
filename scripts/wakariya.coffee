@@ -32,6 +32,8 @@ shouldAgree = (words) ->
   return true if words.match /思うね$/
   return true if words.match /思います$/
   return true if words.match /思ってる$/
+  return true if words.match /思った$/
+  return true if words.match /思ったわ$/
 
   # ちょっと確率下がる
   return false if Math.random() > 0.8
@@ -60,7 +62,7 @@ trimDesinence = (str) ->
 agreePhrases = [
   "わかる", "わかる", "わかる"
   "それな", "それな", "それな"
-  "たしかに"
+  "確かに"
   "違いない"
   "ほんとそれ"
   "ですね"
@@ -88,4 +90,5 @@ dontKnowPhrases = [
   "…？"
   "えっ"
   "ちょっと何言ってるかわかんないですね"
+  "無理"
 ]
