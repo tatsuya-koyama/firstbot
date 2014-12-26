@@ -26,6 +26,7 @@ shouldAgree = (words) ->
   return true if words.match /だな$/
   return true if words.match /かも$/
   return true if words.match /かもな$/
+  return true if words.match /ないかな$/
   return true if words.match /思う$/
   return true if words.match /思うわ$/
   return true if words.match /思うね$/
@@ -38,6 +39,7 @@ shouldAgree = (words) ->
   return true if words.match /いいね$/
   return true if words.match /イイネ$/
   return true if words.match /ウケる$/
+  return true if words.match /やね$/
   return true if words.match /だね$/
   return true if words.match /かもね$/
   return true if words.match /よね$/
@@ -52,7 +54,7 @@ shouldAgree = (words) ->
 
 # 語尾の「。」や「！」を削除
 trimDesinence = (str) ->
-  str.replace(/[ー。、…！ぁwｗ]*$/, "")
+  str.replace(/[ー。、…！ぁぇwｗ]*$/, "")
 
 
 agreePhrases = [
@@ -68,6 +70,7 @@ agreePhrases = [
   "お前は俺か"
   "そういうことやな"
   "全面的に同意です"
+  "あるな"
   "I totally agree with you."
 ]
 
