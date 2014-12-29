@@ -11,7 +11,7 @@ module.exports = (robot) ->
       msg.finish()
 
   # 笑いに便乗する
-  robot.hear /.*[wｗ]+$/i, (msg) ->
+  robot.hear /.*[wｗ笑]+$/i, (msg) ->
     return if Math.random() > 0.3
     msg.send msg.random lolPhrases
 
@@ -23,7 +23,9 @@ shouldAgree = (words) ->
   # 結構な確率で反応
   return false if Math.random() > 0.9
   return true if words.match /やな$/
+  return true if words.match /やなあ$/
   return true if words.match /だな$/
+  return true if words.match /だなあ$/
   return true if words.match /かも$/
   return true if words.match /かもな$/
   return true if words.match /ないかな$/
@@ -34,11 +36,15 @@ shouldAgree = (words) ->
   return true if words.match /思ってる$/
   return true if words.match /思った$/
   return true if words.match /思ったわ$/
+  return true if words.match /すごそう$/
+  return true if words.match /凄そう$/
 
   # ちょっと確率下がる
   return false if Math.random() > 0.8
   return true if words.match /思う/
+  return true if words.match /ったわ$/
   return true if words.match /いいね$/
+  return true if words.match /いいすね$/
   return true if words.match /イイネ$/
   return true if words.match /ウケる$/
   return true if words.match /やね$/
@@ -46,7 +52,12 @@ shouldAgree = (words) ->
   return true if words.match /かもね$/
   return true if words.match /よね$/
   return true if words.match /すごい$/
+  return true if words.match /面白い$/
+  return true if words.match /おもしろい$/
+  return true if words.match /凄い$/
   return true if words.match /からな$/
+  return true if words.match /すよね$/
+  return true if words.match /スよね$/
 
   # 分かるフレーズを拾った場合にも適度に便乗
   return false if Math.random() > 0.8
@@ -56,19 +67,19 @@ shouldAgree = (words) ->
 
 # 語尾の「。」や「！」を削除
 trimDesinence = (str) ->
-  str.replace(/[ー。、…！ぁぇwｗ]*$/, "")
+  str.replace(/[ー〜。、・…!！ぁぇでwｗ]*$/, "")
 
 
 agreePhrases = [
   "わかる", "わかる", "わかる"
   "それな", "それな", "それな"
-  "確かに"
+  "確かに", "たしかに"
   "違いない"
-  "ほんとそれ"
-  "ですね"
+  "ほんとそれ", "ほんまそれ"
+  "ですね", "ですよね"
   "ね"
   "うん"
-  "なるほど"
+  "なるほど", "なるぽこ", "なるへそ"
   "お前は俺か"
   "そういうことやな"
   "全面的に同意です"
@@ -84,11 +95,14 @@ lolPhrases = [
 ]
 
 dontKnowPhrases = [
-  "わからん"
+  "わからん", "わかんない"
   "ごめん"
-  "？"
-  "…？"
-  "えっ"
+  "？", "？？", "…？"
+  "えっ", "ん？"
   "ちょっと何言ってるかわかんないですね"
+  "帰ってもいいですか"
   "無理"
+  "やだー…"
+  "それはない"
+  "何が？"
 ]
