@@ -21,7 +21,7 @@ module.exports = (robot) ->
 
 shouldAgree = (words) ->
   # 結構な確率で反応
-  return false if Math.random() > 0.9
+  return false if Math.random() > 0.7
   return true if words.match /やな$/
   return true if words.match /やなあ$/
   return true if words.match /だな$/
